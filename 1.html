@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal No. 1 (Angka)</title>
+    <style>
+
+        body {
+            background-color: grey;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+        }
+        .container {
+            background-color: white;
+            width: 600px;
+            margin: 30px auto;
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            
+        }
+        p {
+            text-align: justify;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Soal No.1</h1>
+        <h2 style="text-align: left;">By. Seiga AL Ghifari</h2>
+        <p>Sebagai seorang programmer yang handal Bruno ditugaskan untuk membuat function untuk menghitung total element pada array, dengan panjang array 5, hitung 4 isi array angka tersebut kecuali index array pada index yang sedang kamu cek perhitungannya, kemudian cari Angka total terkecil dan terbesar 
+        </p>
+        <button onClick="arrey([1,2,3,4,5]);">Submit [1,2,3,4,5]</button>
+        <button onClick="arrey([5,6,7,8,9]);">Submit [5,6,7,8,9]</button>
+        <button onClick="arrey([9,10,11,12,13]);">Submit [9,10,11,12,13]</button><br>
+        <button onClick="arrey([5,6,7,4,3]);">Submit [5,6,7,4,3]</button>
+        <button onClick="arrey([4,6,8,9,2]);">Submit [4,6,8,9,2]</button>
+        <button onClick="arrey([22,32,56,43,21]);">Submit [22,32,56,43,21]</button><br>
+        <button onClick="arrey([22,33,44,55,66]);">Submit [22,33,44,55,66]</button>
+        <button onClick="arrey([12,23,34,45,56]);">Submit [12,23,34,45,56]</button>
+        <button onClick="arrey([8,7,5,3,1]);">Submit [8,7,5,3,1]</button><br>
+
+        <br><br>
+        <textarea style="font-size: 25px;"name="" id="keluar" cols="30" rows="10"></textarea><br>
+    </div>
+</body>
+<script>
+
+function arrey(x){
+var keluar = document.getElementById('keluar');
+var arhasil = [];
+keluar.value = '';
+
+    for ( i = 0; i<x.length; i++){
+            let input = x.slice(0,5);
+            const nilai = 0;
+                       
+            input.splice(i, 1);
+        
+            const reducer = (a, b) => {
+            return a + b;
+            };
+            var hasil = input.reduce(reducer, nilai);
+            
+            console.log(input.join('+')+'='+ hasil);
+            arhasil.push(hasil);
+            keluar.value += 'Angka '+(i+1)+' : '+input.join('+')+'='+ hasil+'\n';
+            
+           
+        }
+       
+        largest = arhasil.sort()[x.length-1];
+        smallest = arhasil.sort()[0];
+        console.log('Angka Terbesar adalah '+largest+', dan angka terkecil adalah '+smallest);
+    keluar.value += 'Angka Terbesar adalah '+largest+', dan angka terkecil adalah '+smallest;
+}   
+    
+    
+</script>
+</html>

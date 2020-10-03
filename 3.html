@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Soal No. 3 (Pattern)</title>
+	<style>
+		body {
+			background-color: grey;
+		}
+		.container {
+			text-align: center;
+			background-color: white;
+			margin: 20px auto;
+			width: 600px;
+			padding: 40px;
+			border-radius: 20px;
+		}
+
+		#output {
+			height: 500px;
+			width: 400px;
+			margin-top: 30px;
+		}
+		p	{
+			text-align: justify;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+
+		<h1>Soal No. 3</h1>
+		<h2 style="text-align: left;">By. Seiga AL Ghifari</h2>
+		<p>Buatlah function untuk mencetak gambar seperti dibawah ini, yang mempunyai sebuah parameter sebagai panjang lebar/tinggi gambar. Parameter harus merupakan bilangan ganjil:</p>
+		<input type="text" id="input" placeholder="Masukan angka, contoh : 5">
+		<input type="button" name="" value="Submit" onclick="cetak_gambar();">
+		<br>
+		<textarea style="font-size: 25px; text-align: center;" name="" id="output" cols="30" rows="10"></textarea>
+
+	</div>
+
+</body>
+
+</html>
+
+<script>
+
+	function cetak_gambar(){
+		x = document.getElementById('input').value;
+		output = document.getElementById('output')
+		output.value = '';
+		b = '*';
+		e = '=';
+		s = ' ';
+		var gambar = '';
+
+		for (i=1 ; i<=x; i++) {
+			
+			if(i % 2 == 1){
+				for	(let j = 1 ; j<=x; j++){
+					if (j % 3 == 0 ){
+						gambar += e+s;
+					}else {
+						gambar += b+s;
+					}
+				}
+				gambar += '\n'
+			} 
+			
+			else {
+				for	(let j = 1 ; j<=x; j++){
+					if (j % 2 == 1 ){
+						gambar += b+s;
+						}else {
+						gambar += e+s;
+
+					}
+
+				}
+
+				gambar += '\n'
+			}
+
+		}
+		console.log(gambar)
+		output.value += gambar
+	}
+</script>
